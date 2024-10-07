@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class FormForDebitCardTest extends TestBase {
     @ArgumentsSource(BirthdayArgumentProvider.class)
     @ParameterizedTest(name = "Для даты {0} текст валидации долженбыть {1}")
-    void successfulSendFormForDebitCard(String birthday, String ValidationText) {
+    void successfulSendFormForDebitCardTest(String birthday, String ValidationText) {
         open("/cards/debit-cards/tinkoff-black/");
         $("#form").scrollIntoView(true);
         $("[data-qa-type='uikit/input.inputBox.inputContainer']").click();
@@ -23,7 +23,7 @@ public class FormForDebitCardTest extends TestBase {
 
     @CsvFileSource(resources = "/data/testData.csv")
     @ParameterizedTest(name = "Для url {0} текст заголовка должен быть {1}")
-    void CheckLanguage (String UrlLocal, String ValidationText) {
+    void checkLanguageTest(String UrlLocal, String ValidationText) {
         open(UrlLocal);
         $(".application").shouldHave(text(ValidationText));
     }
@@ -35,7 +35,7 @@ public class FormForDebitCardTest extends TestBase {
             "Как написать в чат",
             "Получить справку или выписку"
     })
-    void checkOutPut(String textSearch){
+    void checkOutPutTest(String textSearch){
         open("help/");
         $(".abxY7ZRH2").click();
         $("input.abECkQO50").setValue(textSearch).pressEnter();

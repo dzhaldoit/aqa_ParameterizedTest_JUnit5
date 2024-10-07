@@ -7,13 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
     @BeforeEach
-    void init() {
+    void setApp() {
         Configuration.baseUrl = "https://www.tinkoff.ru/";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
     }
     @AfterEach
-    void setApp() {
+    void setDown() {
         Selenide.closeWebDriver();
     }
 }
